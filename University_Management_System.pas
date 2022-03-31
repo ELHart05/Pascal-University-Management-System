@@ -693,8 +693,8 @@ Var
 Begin
   L1 := DepartmentSearch(DepartmentName);
   L2 := SpecialitySearch(SpecialityName);
-  If (L1=Nil) Then Writeln('Can''t Find Matchhing Department')
-  Else If (L2=Nil) Then Writeln('Can''t Find Matchhing Speciality')
+  If (L1=Nil) Then Writeln('Can''t Find Matching Department')
+  Else If (L2=Nil) Then Writeln('Can''t Find Matching Speciality')
   Else
     Begin
       While (L1<>Nil) Do
@@ -884,6 +884,18 @@ Begin
   S2 := 'SERRADJ';
   S3 := 'MOHAMED EL AMINE';
   NewStudent(S2,S3,ClassYear,SpecialitySearch(S1));
+    S2 := 'BAAGUIGUI';
+  S3 := 'RAMZI';
+  NewStudent(S2,S3,ClassYear,SpecialitySearch(S1));
+    S2 := 'BELHADJ';
+  S3 := 'MOHAMMED EL AMIN';
+  NewStudent(S2,S3,ClassYear,SpecialitySearch(S1));
+    S2 := 'BELLAL';
+  S3 := 'ANTRI WALID';
+  NewStudent(S2,S3,ClassYear,SpecialitySearch(S1));
+    S2 := 'BENDOUBBA';
+  S3 := 'HANA';
+  NewStudent(S2,S3,ClassYear,SpecialitySearch(S1));
   Writeln('Added Succesfully!');
 End;
 
@@ -896,7 +908,7 @@ Begin
   Writeln('Welcome to our University Guid TP! Hit Enter To Start');
   Readln;
   Repeat
-    Writeln('choose one of the following functions to execute : ');
+    Writeln('Choose one of the following functions to execute : ');
     Writeln('0. Quit Our University Guid TP!');
     Writeln('1. Create a University.');
     Writeln('2. Create a Faculty On a University');
@@ -904,15 +916,15 @@ Begin
     Writeln('4. Create a Speciality On a Department');
     Writeln('5. Create a Student On a Speciality');
     Writeln('6. Search For a Faculty');
-    Writeln('7. Search For a Department');
-    Writeln('8. Search For a Speciality');
-    Writeln('9. Search For a Student On a University');
-    Writeln('10. Delete Faculty If No Student In');
-    Writeln('11. Delete Department If No Student In');
-    Writeln('12. Delete Speciality If No Student In');
-    Writeln('13. Delete Student In a Year Of a Speciality On a Department');
-    Writeln('14. Sort Students per Year Of a Speciality On a Department');
-    Writeln('15. Search For a University');
+    Writeln('7. Search For a University');
+    Writeln('8. Search For a Department');
+    Writeln('9. Search For a Speciality');
+    Writeln('10. Search For a Student On a University');
+    Writeln('11. Delete Faculty If No Student In');
+    Writeln('12. Delete Department If No Student In');
+    Writeln('13. Delete Speciality If No Student In');
+    Writeln('14. Delete Student In a Year Of a Speciality On a Department');
+    Writeln('15. Sort Students per Year Of a Speciality On a Department');
     Writeln('20. Enter TEMPLATE1 Data');
     Writeln('99. Show Result Of Total Registries');
     Writeln;
@@ -967,6 +979,15 @@ Begin
            NewStudent(Input2,Input3,ClassYear,SpecialitySearch(Input1));
          End;
       6:
+          Begin
+            Writeln('Enter The University You Want To Search About');
+            Readln(Input1);
+            If (UniversitySearch(Input1)<>Nil) Then
+              Writeln('The University You Searched For Exists')
+            Else
+              Writeln('The University You Searched For Doesn''t Exist');
+          End;
+      7:
          Begin
            Writeln('Enter The Faculty You Want To Search About');
            Readln(Input1);
@@ -975,7 +996,7 @@ Begin
            Else
              Writeln('The Faculty You Searched For Doesn''t Exist');
          End;
-      7:
+      8:
          Begin
            Writeln('Enter The Department You Want To Search About');
            Readln(Input1);
@@ -984,7 +1005,7 @@ Begin
            Else
              Writeln('The Department You Searched For Doesn''t Exist');
          End;
-      8:
+      9:
          Begin
            Writeln('Enter The Speciality You Want To Search About');
            Readln(Input1);
@@ -993,7 +1014,7 @@ Begin
            Else
              Writeln('The Speciality You Searched For Doesn''t Exist');
          End;
-      9:
+      10:
          Begin
            Writeln('Enter The Student''s FirstName You Want To Search About');
            Readln(Input1);
@@ -1004,7 +1025,7 @@ Begin
            Else
              Writeln('The Student You Searched For Doesn''t Exist');
          End;
-      10:
+      11:
           Begin
             Writeln('Enter The University''s Of The Faculty You Want To Delete');
             Readln(Input1);
@@ -1012,7 +1033,7 @@ Begin
             Readln(Input2);
             DeleteFaculty(Input2,UniversitySearch(Input1));
           End;
-      11:
+      12:
           Begin
             Writeln('Enter The Faculty''s Of The Department You Want To Delete');
             Readln(Input1);
@@ -1020,7 +1041,7 @@ Begin
             Readln(Input2);
             DeleteDepartment(Input2,FacultySearch(Input1));
           End;
-      12:
+      13:
           Begin
             Writeln('Enter The Department''s Of The Speciality You Want To Delete');
             Readln(Input1);
@@ -1028,7 +1049,7 @@ Begin
             Readln(Input2);
             DeleteSpeciality(Input2,DepartmentSearch(Input1));
           End;
-      13:
+      14:
           Begin
             Writeln('Enter The Student''s First Name');
             Readln(Input1);
@@ -1043,7 +1064,7 @@ Begin
            End;
             DeleteStudent(Input1,Input2,ClassYear);
           End;
-      14:
+      15:
           Begin
             Writeln('Enter The Department Name');
             Readln(Input1);
@@ -1052,15 +1073,6 @@ Begin
             SortStudents(Input2,Input1);
           End;
       20: TEMPLATE1;
-      15:
-          Begin
-            Writeln('Enter The University You Want To Search About');
-            Readln(Input1);
-            If (UniversitySearch(Input1)<>Nil) Then
-              Writeln('The University You Searched For Exists')
-            Else
-              Writeln('The University You Searched For Doesn''t Exist');
-          End;
       99: ShowResult(StartPointer);
     End;
   Until (G=0);
