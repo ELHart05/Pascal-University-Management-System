@@ -6,6 +6,7 @@ Program UNIVERSITIES_MANAGMENT_SYSTEM;
 ///EVEN THE USER NEED TO CREATE THE PRECEDENT ELEMENT TO PROCCEED TO THE NEXT ELEMENT HE WANT PER EXAMPLE TO CREATE A SPECIALITY HE IS OBLIGED
 ///TO CREATE FIRST A DEPARTMENT, THE SAME FOR DEPARTMENT HE NEEDS TO CREATE A FACULTY BEFORE AND FOR THIS LAST HE'S OBLIGED TO CREATE A UNIVERSITY
 
+//UNIVERSITY=>FACULTY=>DEPARTMENT=>SPECIALITY=>YEAR=>STUDENT
 
 //LS OF STUDENT
 Type
@@ -63,6 +64,8 @@ Type
     FacultyL : FacultyP;
     UniversitySuivant : UniversityP;
   End;
+
+	
 Var
   StartPointer: UniversityP; //THIS POINTER WE WILL USE IT A LOT AND IT ENSURE IF THE LIST IS EMPTY OR NOT (UNIVERSITY)
 
@@ -956,10 +959,11 @@ Begin
            Readln(Input3);
            Writeln('Enter Student''s Year');
            Readln(ClassYear);
-					 Repeat
+					 While (ClassYear>5) or (ClassYear<0) Do
+					 Begin
              Writeln('Year Is Incorrect Try Again');
              readln(ClassYear);
-           Until ((ClassYear<=5) and (ClassYear>0));
+           End;
            NewStudent(Input2,Input3,ClassYear,SpecialitySearch(Input1));
          End;
       6:
@@ -1032,6 +1036,11 @@ Begin
             Readln(Input2);
             Writeln('Enter The Student''s Study Year');
             Readln(ClassYear);
+						While (ClassYear>5) or (ClassYear<0) Do
+					 Begin
+             Writeln('Year Is Incorrect Try Again');
+             readln(ClassYear);
+           End;
             DeleteStudent(Input1,Input2,ClassYear);
           End;
       14:
