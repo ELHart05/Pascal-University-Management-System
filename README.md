@@ -12,6 +12,13 @@ NOTE :
 NOTE : You Can Excute The Source Code On A Pascal XE Compiler The Only APP That I Tried To Excute My Code IN And ... Perefect 100% Works.
 
 You Find Bellow The List Of Functions And Actions You Can Execute
+<br />
+---
 
+![Screenshot 2022-03-31 214116](https://user-images.githubusercontent.com/96151694/161145786-022c4d5f-f11a-4e2e-8d7f-3302835620e5.png)
+<br />
+---
 
-![image](https://user-images.githubusercontent.com/96151694/160480668-458007d7-d540-4930-850c-eb0d51293e35.png)
+*RELEASES :*
+- v1.0 First Deploy
+- v1.1 Adding Some Students And Editing Some Functionalities
